@@ -1,0 +1,13 @@
+# markedoc project gitignore file. Exclude all these:
+SAMPLE.edoc
+README.html
+*.dump
+*.beam
+*.log
+doc/
+doc/*
+samples/*
+# but allow these (being listed below the above matters)
+!samples/*.md
+!samples/doc/overview.edoc
+!samples/what-you-should-get/*
