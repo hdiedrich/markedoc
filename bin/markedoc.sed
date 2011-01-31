@@ -39,7 +39,18 @@
 # ----------------------------------------------------------
 # Repository: https://github.com/hdiedrich/markedoc/
 # ----------------------------------------------------------
-# Issues: https://github.com/hdiedrich/markedoc/
+# Issues: https://github.com/hdiedrich/markedoc/issues
+# ----------------------------------------------------------
+# * Underlined ("==="/"---") headlines currently don't work,
+#   use the '#' variant instead  
+# * **'[1]: ...'-style end note references need two spaces
+#   at the end of the line**    
+# * add two new lines at end of your markdown file to avoid
+#   loosing the last line.  
+# * Local anchor jumps fail  
+# * robust alternates not tested for some time  
+# * space before javascript links should go  
+# * protect ampersands
 # ----------------------------------------------------------
 
 # **********************************************************

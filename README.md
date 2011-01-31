@@ -1,5 +1,5 @@
-SAMPLE 3: markedoc README.md of Jan 2011
-========================================
+markedoc 0.1
+============
 
  **markedoc** helps you keep your project's README.md in sync with your overview.edoc.
 
@@ -66,7 +66,7 @@ Status
 
  **Alpha**. You can do nice things but it likes to trip up EDoc, which is kind of easy to do.
 
-There are  many ways to create formats that will make the EDoc generator tilt and unfortunately, the errors it throws are sometimes not quite so illuminating to the reader. But why not try an incremental approach and see what works. As you can see from the [live sample][sample], it's quite a lot that *does* work and some bits can be worked out. Please experiment and push your fixes.
+There are  many ways to create formats that will make the EDoc generator tilt and unfortunately, the errors it throws are sometimes not quite so illuminating to the reader. But why not try an incremental approach and see what works. As you can see from this [source sample][sample], which works alright, it's quite a lot that *does* work and some bits can be worked out. Additional lines help, spaces at the end of lines help. Please experiment and push your fixes.
 
  **Thanks!**
 
