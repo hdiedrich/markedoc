@@ -1,58 +1,85 @@
-markedoc 0.2
+markedoc 0.3
 ============
 
- **markedoc** helps you keep your project's README.md in sync with your overview.edoc. It works with FreeBSD and Mac OS X sed.
+**markedoc helps you keep your project's README.md in sync with your overview.edoc.**
 
-Status: **alpha**. Usable. See [Status][].
+markedoc translates [Markdown][] formatted texts into [Erlang][] [EDoc][] format, for inclusion into [EDoc][] generated html docs. It is for use on Linux, FreeBSD and Mac OS X and any system that you can install  **[sed][Requirements]** on.
 
-markedoc translates [Markdown][] formatted texts into [Erlang][] [EDoc][] format, for inclusion into [EDoc][] generated html docs.
+Status: [pre-beta][Status]. Quite stable and usable. See [Status][].
 
-The actual script file is in the bin folder: bin/markedoc.sed.
+markedoc is a mere [sed][] command file to convert markdown to edoc. It is part of the **[edown][]** project. The actual script file is in the bin folder: bin/markedoc.sed. Your contribution to make markedoc stable is highly [welcome][issues].
 
-markedoc is but a [sed][] command file to convert markdown to edoc. Use it to translate your project's README.md into a README.edoc to include in your Erlang project's main overview.edoc file.
-
-markedoc is part of the **[edown][]** project.
-
-Your contribution to make markedoc stable is highly welcome.
+[issues]: https://github.com/hdiedrich/markedoc/issues "Issue tracker"
 
 Use
 ---
-At the command line:
+At the command line for
 
+**FreeBSD, Mac OS X**
 	$ sed -E -f markedoc.sed <markdown file> > <edoc file>
+
+**Linux**
+	$ sed -r -f markedoc.sed <markdown file> > <edoc file>
+
+Usage for Linux and FreeBSD and Mac OS X is completely the same, except for the -r instead of the -E parameter. Both mean the same but happen to have a different name. In the examples below, replace -E with -r where necessary.
 
 Requirements
 ------------
-* **[FreeBSD sed][sed]**: is part of any Linux FreeBSD and Mac OSX distribution.
+* **[sed][]**: is part of any Linux, FreeBSD and Mac OSX distribution, also see [Notes][].
 
-* **[Erlang/OTP][Erlang]**: see below.  
+* **[Erlang/OTP][Erlang]**, see [Notes][].
+
+Test
+----
+
+ **FreeBSD, Mac OS X**
+	$ etc/test-bsd.sh
+
+ **Linux**
+	$ etc/test-linux.sh
+
+Then check html files as listed in the output.
 
 Sample
 ------
 
 From project root (were the README.md file is), try out:
 
+ **FreeBSD, Mac OS X**
 	$ sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
+	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
+
+ **Linux**
+	$ sed -r -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
 
 This creates a SAMPLE.edoc file from SAMPLE1.md, which is then included in the EDoc generation. Point your browser at
 
-	samples/doc/index.html
-	
-to see the result.
+	samples/doc/overview-summary.html
+
+to see the result. For something only vaguely related but pretty, try:
+
+	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+
+This illustrates the motivation for the markedoc as it is now: to have all code lines in one block in order to be able to address them as one united div from css.		
 
 For your own projects you'd copy markedoc.sed in the right place and do something like:
 
+ **FreeBSD, Mac OS X**
 	$ sed -E -f bin/markedoc.sed README.md > doc/README.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"."' '[]'	
 
-And that's it. This could also be part of your Makefile. So that the README.edoc automatically becomes part of your generated EDoc html pages, you would use a @docfile tag in your overview.edoc file, like so:
+ **Linux**
+	$ sed -r -f bin/markedoc.sed README.md > doc/README.edoc
+	$ erl -noshell -run edoc_run application "'myapp'" '"."' '[]'	
+
+And that's it. This could also be part of your Makefile. For the intermediary README.edoc to automatically become part of your generated EDoc html pages, you would use a @docfile tag in your overview.edoc file, like so:
 
 	@docfile "doc/README.edoc"
 
-After running sed, then edoc, this makes the README.edoc part of the overview page.
+By running sed, then edoc, this makes the README.edoc part of the overview page. You could also make the README.md straight into an overview.edoc but the way it is allows allows to embedd it into additional context information that should be useful for a proper html doc.
 
-Accordingly, the sample overview.edoc used for the samples, looks like this:
+Accordingly, the sample stub overview.edoc used for the samples here, looks like this:
 
 	@author You 
 	@title  a markedoc sample doc
@@ -62,9 +89,9 @@ Accordingly, the sample overview.edoc used for the samples, looks like this:
 Status
 ------
 
- **Alpha**. Quite usable, but still likes to trip up EDoc now and then, which is kind of easy to do.
+ **Pre-Beta**. Quite usable, but still likes to trip up EDoc now and then, which is kind of easy to do. 
 
-There are  many ways to create formats that will make the EDoc generator tilt and unfortunately, the errors it throws are sometimes not quite so illuminating to the reader. But why not try an incremental approach and see what works. As you can see from this [source sample][sample], which works alright, it's quite a lot that *does* work and some bits can be worked out. Sometimes an additional line helps, some spaces at the end of line, general intuitive stuff. Please experiment and push your fixes.
+There are  many ways to create formats that will make the EDoc generator tilt and unfortunately, the errors it throws are sometimes not quite so illuminating to the reader. But why not try an incremental approach and see what works. As you can see from this [source sample][sample], which works alright, it's quite a lot that *does* work and the murky bits can usally be worked out fast. Sometimes an additional line helps, some spaces at the end of a line, general intuitive stuff. Please experiment and push your fixes to me.
 
  **Thanks!**
 
@@ -101,26 +128,70 @@ Todo
 
 Development
 -----------
-This tests markedoc with its three samples and saves the results into samples/what-you-should-get/
+To test markedoc, see '[Test][]', above. Or use
 
+ **FreeBSD**
 	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-should-get/sample1.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-get/SAMPLE1.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+	mv samples/doc/overview-summary.html samples/your-test-results/sample1.html
+	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE1.edoc	
 	
 	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
 	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-should-get/sample2.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-get/SAMPLE2.edoc
+	mv samples/doc/overview-summary.html samples/your-test-results/sample2.html
+	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE2.edoc
+	
+	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+	mv samples/doc/overview-summary.html samples/your-test-results/sample3.html
+	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE3.edoc	
+	
+Then check samples/your-test-results/sample1.html - sample3.html and compare with samples/what-you-should-see/sample1.html, sample2.html and  samples/what-you-could-see/sample3.html.
+
+To create the reference samples:
+
+ **FreeBSD**
+	etc/make_samples.sh
+
+or do the following to create six samples and save the results into samples/what-you-should-see/ and samples/what-you-could-see/
+
+ **FreeBSD**
+	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample1.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE1.edoc
+	
+	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample2.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE2.edoc
 	
 	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
 	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-should-get/sample3.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-get/SAMPLE3.edoc
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample3.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE3.edoc
 	
-To test README.md, use markdown.lua (credit: Niklas Frykholm, <niklas@frykholm.se>):
+	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample1.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE1.edoc
+	
+	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample2.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE2.edoc
+	
+	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
+	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
+	mv samples/doc/overview-summary.html samples/what-you-could-see/sample3.html
+	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE3.edoc		
+
+To test this very README.md, use markdown.lua, credit Niklas Frykholm, <niklas@frykholm.se>:
 
 	lua etc/markdown.lua README.md
+	
+### HTML Special Signs 
+http://www.mountaindragon.com/html/iso.htm
 
 
 License
@@ -129,21 +200,35 @@ This script is free software. It comes without any warranty.
 
 Author
 ------
-
 H. Diedrich <hd2010@eonblast.com>
 
 History
 -------
-
-02/02/11 - 0.2 - **FreeBSD / Mac OS X: basics complete**
 	
-* both headline modes are now supported (#,## ... and ===,---)
+02/03/11 - 0.3 - **rough edges polished:** Linux, FreeBSD, Mac OS X
+
+* added doc for Linux use
+* added support for multi-line '[..]: ... "..."' references
+* added footnote signs and sepcial chars:
+* dagger, double dagger: (+), (++), stars: (*), (**), (***)  
+* superscript 1, 2, 3: (*1), (*2), (*3), copyright (C), (R), (TM),  
+* guillemots <<, >> and middle dot ::
+* added test batches etc/test-bsd.sh and etc/test-linux.sh
+* added css sample in samples/what-you-could-see/ 
+* added classes for `<li>' list item tags for '[..]:...'-references
+* fixed italic and bold merker interference bullet points
+* eliminated [..]: part of '[..]:...'-references, flipping "..." to lead
+* dev: sample creation batch make_samples.sh added
+	
+02/02/11 - 0.2 - **basics complete:** FreeBSD / Mac OS X
+
+* added support for === and --- headline format
 * fixed cutting off of last lines 
 * fixed page-local anchor jumps
 * fixed space in javascript links
 * eliminated end-space requirement at end of '[..]:...'-style references.
 * eliminated need for echoing '@doc' first into edoc output file
 * added javascript title tag setting for '[..]:...'-style references.
-
-01/31/11 - 0.1 - **FreeBSD / Mac OS X: first  release**
+	
+01/31/11 - 0.1 - **first release:** FreeBSD / Mac OS X
 	

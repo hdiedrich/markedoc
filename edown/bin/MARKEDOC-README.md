@@ -1,15 +1,7 @@
-SAMPLE 3: markedoc 0.3 README of Feb 2011
-=========================================
+markedoc 0.3
+============
 
-```
- --------------------------------------------------------------
-| THIS TEXT IS USED AS A SAMPLE TO ILLUSTRATE MARKEDOC USAGE.  |
-| If you see this in your browser, you succeeded compiling it  |
-| from markdown into an edoc.  As you see it's complex enough. |
- --------------------------------------------------------------
-'''
-
- **markedoc helps you keep your project's README.md in sync with your overview.edoc.**
+**markedoc helps you keep your project's README.md in sync with your overview.edoc.**
  
 It is for use on Linux, FreeBSD and Mac OS X and any system that you can install  **[sed][Requirements]** on.
 
@@ -57,28 +49,6 @@ Then check html files as listed in the output.
 Sample
 ------
 
-From project root (were the README.md file is), try out:
-
- **FreeBSD, Mac OS X**
-	$ sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-
- **Linux**
-	$ sed -r -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-
-This creates a SAMPLE.edoc file from SAMPLE1.md, which is then included in the EDoc generation. Point your browser at
-
-	samples/doc/overview-summary.html
-
-to see the result. For something only vaguely related but pretty, try:
-
-	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-
-This illustrates the motivation for the markedoc as it is now: to have all code lines in one block in order to be able to address them as one united div from css.		
-
-For your own projects you'd copy markedoc.sed in the right place and do something like:
-
  **FreeBSD, Mac OS X**
 	$ sed -E -f bin/markedoc.sed README.md > doc/README.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"."' '[]'	
@@ -97,7 +67,7 @@ Accordingly, the sample stub overview.edoc used for the samples here, looks like
 
 	@author You 
 	@title  a markedoc sample doc
-	@version 0.2
+	@version 0.3
 	@docfile "samples/doc/SAMPLE.edoc"
 
 Status
@@ -136,77 +106,8 @@ Notes
 
 Todo
 ----
-* make work with non-FreeBSD sed
 * robust alternates not tested for some time
 * protect ampersands
-
-Development
------------
-To test markedoc, see '[Test][]', above. Or use
-
- **FreeBSD**
-	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-	mv samples/doc/overview-summary.html samples/your-test-results/sample1.html
-	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE1.edoc	
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/your-test-results/sample2.html
-	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE2.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-	mv samples/doc/overview-summary.html samples/your-test-results/sample3.html
-	mv samples/doc/SAMPLE.edoc samples/your-test-results/SAMPLE3.edoc	
-	
-Then check samples/your-test-results/sample1.html - sample3.html and compare with samples/what-you-should-see/sample1.html, sample2.html and  samples/what-you-could-see/sample3.html.
-
-To create the reference samples:
-
- **FreeBSD**
-	etc/make_samples.sh
-
-or do the following to create six samples and save the results into samples/what-you-should-see/ and samples/what-you-could-see/
-
- **FreeBSD**
-	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample1.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE1.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample2.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE2.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample3.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-should-see/SAMPLE3.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample1.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE1.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE2.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample2.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE2.edoc
-	
-	sed -E -f bin/markedoc.sed samples/SAMPLE3.md > samples/doc/SAMPLE.edoc
-	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
-	mv samples/doc/overview-summary.html samples/what-you-could-see/sample3.html
-	mv samples/doc/SAMPLE.edoc samples/what-you-could-see/SAMPLE3.edoc		
-
-To test this very README.md, use markdown.lua, credit Niklas Frykholm, <niklas@frykholm.se>:
-
-	lua etc/markdown.lua README.md
-	
-### HTML Special Signs 
-http://www.mountaindragon.com/html/iso.htm
-
 
 License
 -------

@@ -1,7 +1,4 @@
-@author You 
-
-@title  a markedoc sample doc
-
-@version 0.1
-
+@author You! 
+@title  A Markedoc Sample Doc
+@version 0.3
 @docfile "samples/doc/SAMPLE.edoc"

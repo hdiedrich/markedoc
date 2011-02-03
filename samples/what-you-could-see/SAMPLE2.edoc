@@ -1,18 +1,16 @@
 @doc
-== SAMPLE2: EDown Readme of Jan 2011 ==
-
+== SAMPLE 2: EDown Readme of Jan 2011 ==
 ```
  --------------------------------------------------------------
 | THIS TEXT IS USED AS A SAMPLE TO ILLUSTRATE MARKEDOC USAGE.  |
 | If you see this in your browser, you succeeded compiling it  |
-| from markdown into an edoc. As you see it's quite complex    |
-| and there is no 'cheating' involved.                         |
+| from markdown into an edoc.                                  |
  --------------------------------------------------------------
 '''
 
 <a href="mailto:ulf.wiger@erlang-solutions.com">ulf.wiger@erlang-solutions.com</a>
 
-== Status: ==
+=== Status: ===
 
 More-or-less readable Markdown can be generated.
 A doclet needs to be written that also creates 
@@ -30,7 +28,7 @@ GH-flavored Markdown allows HTML markup (at least common tags),
 but doesn't expand markdown markup inside HTML markup, so the 
 <code>edown_xmerl</code> module has to know the context in which it operates.
 
-== NOTE ==
+=== NOTE ===
 
 EDoc provides a plugin structure, so that one may specify own 
 layout modules, export modules, and doclets. However, there is 

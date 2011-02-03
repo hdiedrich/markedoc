@@ -1,5 +1,5 @@
 @doc
-== SAMPLE1: Emysql Readme of Jan 2011 ==
+== SAMPLE 1: Emysql Readme of Jan 2011 ==
 ```
  --------------------------------------------------------------
 | THIS TEXT IS USED AS A SAMPLE TO ILLUSTRATE MARKEDOC USAGE.  |
@@ -9,9 +9,7 @@
  --------------------------------------------------------------
 '''
 
----
-
-Erlang MySQL driver, based on a rewrite at Electronic Arts. Supports prepared statements and stored procedures. For <a href="javascript:goto('samples')" onMouseOver="this.title=url('samples')">samples</a> and <a href="javascript:goto('docs')" onMouseOver="this.title=url('docs')">docs</a> see below.
+Erlang MySQL driver, based on a rewrite at Electronic Arts&#153;. Supports prepared statements and stored procedures. For <a href="javascript:goto('samples')" onMouseOver="this.title=url('samples')">samples</a> and <a href="javascript:goto('docs')" onMouseOver="this.title=url('docs')">docs</a> see below.
 
 While you can use mysql via ODBC, using a driver like Emysql should perform better. 
 
@@ -19,9 +17,9 @@ This is a continuation fork of <a href="javascript:goto('1')" onMouseOver="this.
 
 <hr/>
 
- <b>Which fork should I use?</b> See <a href="javascript:goto('history')" onMouseOver="this.title=url('history')">history</a>.<br />
- <b>Who used this fork?</b> Electronic Arts.<br />
- <b>How do I ...?</b> See <a href="javascript:goto('samples')" onMouseOver="this.title=url('samples')">samples</a>.<br />
+ <b>&#171;Which fork should I use?&#187;</b> See <a href="javascript:goto('history')" onMouseOver="this.title=url('history')">history</a>.<br />
+ <b>&#171;Who used this fork?&#187;</b> Electronic Arts.<br />
+ <b>&#171;How do I ...?&#187;</b> See <a href="javascript:goto('samples')" onMouseOver="this.title=url('samples')">samples</a>.<br />
 
  <b>Download:</b> <a href="https://github.com/Eonblast/Emysql/archives/master">https://github.com/Eonblast/Emysql/archives/master</a><br />
  <b>Repository:</b> <a href="https://github.com/Eonblast/Emysql">https://github.com/Eonblast/Emysql</a><br />
@@ -56,43 +54,34 @@ Open Source Erlang MySQL driver efforts are currently a fractured matter, at lea
 <a href="javascript:goto('vb')" onMouseOver="this.title=url('vb')">Vitaliy Batichko</a> and
 <a href="javascript:goto('cr')" onMouseOver="this.title=url('cr')">Chris Rempel</a> have contributed updates to this branch. Thank you!
 
-[1] <a name="1" id="1" href="http://github.com/JacobVorreuter/emysql" target="_parent">http://github.com/JacobVorreuter/emysql</a>emysql<br />
-[2] <a name="2" id="2" href="http://github.com/dizzyd/erlang-mysql-driver" target="_parent">http://github.com/dizzyd/erlang-mysql-driver</a>erlang-mysql-driver<br />
-[3] <a name="3" id="3" href="http://www.kth.se/" target="_parent">http://www.kth.se/</a>Royal Institure of Technology<br />
-[4] <a name="4" id="4" href="https://github.com/fredrikt/yxa/tree/master/src/mysql" target="_parent">https://github.com/fredrikt/yxa/tree/master/src/mysql</a>Yxa mysql driver<br />
-[5] <a name="5" id="5" href="http://www.stacken.kth.se/project/yxa/index.html" target="_parent">http://www.stacken.kth.se/project/yxa/index.html</a>Yxa Home<br />
-[6] <a name="6" id="6" href="https://github.com/fredrikt/yxa" target="_parent">https://github.com/fredrikt/yxa</a>Yxa repository at github<br />
-[7] <a name="7" id="7" href="http://svn.process-one.net/ejabberd-modules/mysql/trunk/" target="_parent">http://svn.process-one.net/ejabberd-modules/mysql/trunk/</a><br />
-    "ejabberd mysql driver"<br />
-[8] <a name="8" id="8" href="https://support.process-one.net" target="_parent">https://support.process-one.net</a>Process One Home<br />
-[9] <a name="9" id="9" href="http://www.process-one.net/en/ejabberd/" target="_parent">http://www.process-one.net/en/ejabberd/</a>ejabberd Home<br />
-[10] <a name="10" id="10" href="https://github.com/processone/ejabberd/" target="_parent">https://github.com/processone/ejabberd/</a>ejabberd repository at github<br />
-[11] <a name="11" id="11" href="https://support.process-one.net/doc/display/CONTRIBS/Yxa" target="_parent">https://support.process-one.net/doc/display/CONTRIBS/Yxa</a><br />
-     "ejabberd MySQL 4.1. patch"<br />
-[12] <a name="12" id="12" href="https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa.txt" target="_parent">https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa.txt</a><br />
-     "Diff of Yxa and ejabberd mysql drivers"<br />
-[13] <a name="13" id="13" href="https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa-2.txt" target="_parent">https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa-2.txt</a><br />
-     "Diff of Yxa and ejabberd mysql drivers ignoring comment changes"<br />
-[14] <a name="14" id="14" href="http://code.google.com/p/erlang-mysql-driver/" target="_parent">http://code.google.com/p/erlang-mysql-driver/</a><br />
-     "original erlang-mysql-driver"<br />
-[15] <a name="15" id="15" href="http://github.com/dizzyd/erlang-mysql-driver" target="_parent">http://github.com/dizzyd/erlang-mysql-driver</a><br />
-     "Dave Smith's erlang-mysql-driver at github, currently not maintained"<br />
-[16] <a name="16" id="16" href="https://github.com/dizzyd/erlang-mysql-driver/network" target="_parent">https://github.com/dizzyd/erlang-mysql-driver/network</a><br />
-     "Fork graph of erlang-mysql-driver at github"<br />
+<li class="ref url"> emysql:<a name="1" id="1" href="http://github.com/JacobVorreuter/emysql" target="_parent">http://github.com/JacobVorreuter/emysql</a></li>
+<li class="ref url"> erlang-mysql-driver:<a name="2" id="2" href="http://github.com/dizzyd/erlang-mysql-driver" target="_parent">http://github.com/dizzyd/erlang-mysql-driver</a></li>
+<li class="ref url"> Royal Institure of Technology:<a name="3" id="3" href="http://www.kth.se/" target="_parent">http://www.kth.se/</a></li>
+<li class="ref url"> Yxa mysql driver:<a name="4" id="4" href="https://github.com/fredrikt/yxa/tree/master/src/mysql" target="_parent">https://github.com/fredrikt/yxa/tree/master/src/mysql</a></li>
+<li class="ref url"> Yxa Home:<a name="5" id="5" href="http://www.stacken.kth.se/project/yxa/index.html" target="_parent">http://www.stacken.kth.se/project/yxa/index.html</a></li>
+<li class="ref url"> Yxa repository at github:<a name="6" id="6" href="https://github.com/fredrikt/yxa" target="_parent">https://github.com/fredrikt/yxa</a></li>
+<li class="ref url"> ejabberd mysql driver:<a name="7" id="7" href="http://svn.process-one.net/ejabberd-modules/mysql/trunk/" target="_parent">http://svn.process-one.net/ejabberd-modules/mysql/trunk/</a></li>
+<li class="ref url"> Process One Home:<a name="8" id="8" href="https://support.process-one.net" target="_parent">https://support.process-one.net</a></li>
+<li class="ref url"> ejabberd Home:<a name="9" id="9" href="http://www.process-one.net/en/ejabberd/" target="_parent">http://www.process-one.net/en/ejabberd/</a></li>
+<li class="ref url"> ejabberd repository at github:<a name="10" id="10" href="https://github.com/processone/ejabberd/" target="_parent">https://github.com/processone/ejabberd/</a></li>
+<li class="ref url"> ejabberd MySQL 4.1. patch:<a name="11" id="11" href="https://support.process-one.net/doc/display/CONTRIBS/Yxa" target="_parent">https://support.process-one.net/doc/display/CONTRIBS/Yxa</a></li>
+<li class="ref url"> Diff of Yxa and ejabberd mysql drivers:<a name="12" id="12" href="https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa.txt" target="_parent">https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa.txt</a></li>
+<li class="ref url"> Diff of Yxa and ejabberd mysql drivers ignoring comment changes:<a name="13" id="13" href="https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa-2.txt" target="_parent">https://github.com/Eonblast/Emysql/tree/master/doc/diff-ejabberd-yxa-2.txt</a></li>
+<li class="ref url"> original erlang-mysql-driver:<a name="14" id="14" href="http://code.google.com/p/erlang-mysql-driver/" target="_parent">http://code.google.com/p/erlang-mysql-driver/</a></li>
+<li class="ref url"> Dave Smith's erlang-mysql-driver at github, currently not maintained:<a name="15" id="15" href="http://github.com/dizzyd/erlang-mysql-driver" target="_parent">http://github.com/dizzyd/erlang-mysql-driver</a></li>
+<li class="ref url"> Fork graph of erlang-mysql-driver at github:<a name="16" id="16" href="https://github.com/dizzyd/erlang-mysql-driver/network" target="_parent">https://github.com/dizzyd/erlang-mysql-driver/network</a></li>
 
-[ma] <a name="ma" id="ma" href="mailto:mailto:ahltorp@nada.kth.se">mailto:ahltorp@nada.kth.se</a>Magnus Ahltorp<br />
-[ys] <a name="ys" id="ys" href="http://yarivsblog.blogspot.com/" target="_parent">http://yarivsblog.blogspot.com/</a>Yariv Sadan<br />
-[bw] <a name="bw" id="bw" href="mailto:mailto:bill@rupture.com">mailto:bill@rupture.com</a>Bill Warnecke<br />
-[jv] <a name="jv" id="jv" href="https://github.com/JacobVorreuter" target="_parent">https://github.com/JacobVorreuter</a>Jacob Vorreuter<br />
-[vb] <a name="vb" id="vb" href="https://github.com/bva" target="_parent">https://github.com/bva</a>Vitaliy Batichko<br />
-[cr] <a name="cr" id="cr" href="https://github.com/csrl" target="_parent">https://github.com/csrl</a>Chris Rempel<br />
-[hd] <a name="hd" id="hd" href="mailto:mailto:hd2010@eonblast.com">mailto:hd2010@eonblast.com</a>Henning Diedrich<br />
-[mr] <a name="mr" id="mr" href="mailto:mailto:mickael.remond@process-one.net">mailto:mickael.remond@process-one.net</a>Mickael Remond<br />
+<li class="ref email"> Magnus Ahltorp:<a name="ma" id="ma" href="mailto:ahltorp@nada.kth.se">ahltorp@nada.kth.se</a></li>
+<li class="ref url"> <a name="ys" id="ys" href="http://yarivsblog.blogspot.com/" target="_parent">http://yarivsblog.blogspot.com/</a></li>
+<li class="ref email"> <a name="bw" id="bw" href="mailto:bill@rupture.com">bill@rupture.com</a></li>
+<li class="ref url"> <a name="jv" id="jv" href="https://github.com/JacobVorreuter" target="_parent">https://github.com/JacobVorreuter</a></li>
+<li class="ref url"> <a name="vb" id="vb" href="https://github.com/bva" target="_parent">https://github.com/bva</a></li>
+<li class="ref url"> Chris Rempel:<a name="cr" id="cr" href="https://github.com/csrl" target="_parent">https://github.com/csrl</a></li>
+<li class="ref email"> Henning Diedrich:<a name="hd" id="hd" href="mailto:hd2010@eonblast.com">hd2010@eonblast.com</a></li>
+<li class="ref email"> Mickael Remond:<a name="mr" id="mr" href="mailto:mickael.remond@process-one.net">mickael.remond@process-one.net</a></li>
 
-[fixes] <a name="fixes" id="fixes" href="https://github.com/Eonblast/Emysql/issues/closed" target="_parent">https://github.com/Eonblast/Emysql/issues/closed</a><br />
-          "Emysql fixes"<br />
-[docs] <a name="docs" id="docs" href="http://eonblast.github.com/Emysql/" target="_parent">http://eonblast.github.com/Emysql/</a><br />
-          "Emysql online docs"<br />
+<li class="ref url"> Emysql fixes:<a name="fixes" id="fixes" href="https://github.com/Eonblast/Emysql/issues/closed" target="_parent">https://github.com/Eonblast/Emysql/issues/closed</a></li>
+<li class="ref url"> Emysql online docs:<a name="docs" id="docs" href="http://eonblast.github.com/Emysql/" target="_parent">http://eonblast.github.com/Emysql/</a></li>
 
 == Usage  ==
 
@@ -212,7 +201,7 @@ Open Source Erlang MySQL driver efforts are currently a fractured matter, at lea
 '''
 == Samples ==
 
-==== Hello World ====
+==== Hello World&#42; ====
 
 This is a hello world program. Follow the three steps below to try it out.
 ```
@@ -265,7 +254,7 @@ For the above sample, create a local mysql database. You should have a mysql ser
 
 ==== Run Hello ====
 
-Be sure to have ./ebin in your Erlang path. Now copy the Hello World source above into a file hello.erl and run it (in the Emysql root directory):
+Be sure to have ./ebin in your Erlang path. Now copy the Hello World source above at '&#42;' into a file hello.erl and run it (in the Emysql root directory):
 
 ```
  $ erlc hello.erl
@@ -311,11 +300,11 @@ first create the database as listed above):
 <li> <a href="http://code.google.com/p/erlang-mysql-driver/">'erlang-mysql-driver'</a></li>
 <li> <a href="http://github.com/dizzyd/erlang-mysql-driver">Dave Smith's erlang-mysql-driver fork</a></li>
 <li> <a href="https://github.com/JoelPM/erlang-mysql-driver">A maintained erlang-mysql-driver</a>  fork</li>
-<li> <a href="https://github.com/chernomor/erlang-mysql-driver">Another maintained* erlang-mysql-driver</a>  fork</li>
+<li> <a href="https://github.com/chernomor/erlang-mysql-driver">Another maintained&#134; erlang-mysql-driver</a>  fork</li>
 <li> <a href="http://forge.mysql.com/wiki/MySQL_Internals_ClientServer_Protocol">MySQL Client Server Protocol</a></li>
 <li> <a href="ftp://ftp.fu-berlin.de/unix/databases/mysql/Downloads/MySQL-5.5/mysql-5.5.8.tar.gz">MySQL 5.5 Source</a></li>
 
- maintained at the time of writing, Jan 2011.
+&#134;maintained at the time of writing, Jan 2011.
 
 == TODO ==
 <li> decrementing pool size could close sockets that are in use</li>
@@ -324,7 +313,7 @@ first create the database as listed above):
 
 == License ==
 
-Copyright (c) 2009-2011
+Copyright &#169; 2009-2011
 Bill Warnecke <a href="mailto:bill@rupture.com">bill@rupture.com</a>,
 Jacob Vorreuter <a href="mailto:jacob.vorreuter@gmail.com">jacob.vorreuter@gmail.com</a>,
 Henning Diedrich <a href="mailto:hd2010@eonblast.com">hd2010@eonblast.com</a>,

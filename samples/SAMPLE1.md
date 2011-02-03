@@ -1,4 +1,4 @@
-# SAMPLE1: Emysql Readme of Jan 2011
+# SAMPLE 1: Emysql Readme of Jan 2011
 ```
  --------------------------------------------------------------
 | THIS TEXT IS USED AS A SAMPLE TO ILLUSTRATE MARKEDOC USAGE.  |
@@ -8,9 +8,7 @@
  --------------------------------------------------------------
 '''
 
----
-
-Erlang MySQL driver, based on a rewrite at Electronic Arts. Supports prepared statements and stored procedures. For [samples][] and [docs][] see below.
+Erlang MySQL driver, based on a rewrite at Electronic Arts(tm). Supports prepared statements and stored procedures. For [samples][] and [docs][] see below.
 
 While you can use mysql via ODBC, using a driver like Emysql should perform better. 
 
@@ -18,9 +16,9 @@ This is a continuation fork of [emysql][1] with [fixes][], [updates][], more [do
 
 <hr/>
 
- **Which fork should I use?** See [history][].  
- **Who used this fork?** Electronic Arts.  
- **How do I ...?** See [samples][].  
+ **<<Which fork should I use?>>** See [history][].  
+ **<<Who used this fork?>>** Electronic Arts.  
+ **<<How do I ...?>>** See [samples][].  
 
  **Download:** <https://github.com/Eonblast/Emysql/archives/master>  
  **Repository:** <https://github.com/Eonblast/Emysql>  
@@ -79,14 +77,14 @@ Open Source Erlang MySQL driver efforts are currently a fractured matter, at lea
 [16]: https://github.com/dizzyd/erlang-mysql-driver/network   
      "Fork graph of erlang-mysql-driver at github"  
 
-[ma]: mailto:ahltorp@nada.kth.se            "Magnus Ahltorp"  
-[ys]: http://yarivsblog.blogspot.com/       "Yariv Sadan"  
-[bw]: mailto:bill@rupture.com               "Bill Warnecke"  
-[jv]: https://github.com/JacobVorreuter     "Jacob Vorreuter"  
-[vb]: https://github.com/bva                "Vitaliy Batichko"  
+[ma]: ahltorp@nada.kth.se                   "Magnus Ahltorp"  
+[ys]: http://yarivsblog.blogspot.com/         
+[bw]: bill@rupture.com  
+[jv]: https://github.com/JacobVorreuter  
+[vb]: https://github.com/bva
 [cr]: https://github.com/csrl               "Chris Rempel"  
-[hd]: mailto:hd2010@eonblast.com            "Henning Diedrich"  
-[mr]: mailto:mickael.remond@process-one.net "Mickael Remond"  
+[hd]: hd2010@eonblast.com                   "Henning Diedrich"  
+[mr]: mickael.remond@process-one.net        "Mickael Remond"  
 
 [fixes]:   https://github.com/Eonblast/Emysql/issues/closed  
           "Emysql fixes"  
@@ -187,7 +185,7 @@ Open Source Erlang MySQL driver efforts are currently a fractured matter, at lea
 	
 ## Samples
 
-#### Hello World
+#### Hello World(*)
 
 This is a hello world program. Follow the three steps below to try it out.
 	
@@ -234,7 +232,7 @@ For the above sample, create a local mysql database. You should have a mysql ser
 
 #### Run Hello
 
-Be sure to have ./ebin in your Erlang path. Now copy the Hello World source above into a file hello.erl and run it (in the Emysql root directory):
+Be sure to have ./ebin in your Erlang path. Now copy the Hello World source above at '(*)' into a file hello.erl and run it (in the Emysql root directory):
 
 	$ erlc hello.erl
 	$ erl -pa ../ebin -s hello run -s init stop -noshell
@@ -274,11 +272,11 @@ first create the database as listed above):
 * ['erlang-mysql-driver'](http://code.google.com/p/erlang-mysql-driver/)
 * [Dave Smith's erlang-mysql-driver fork](http://github.com/dizzyd/erlang-mysql-driver)
 * [A maintained erlang-mysql-driver](https://github.com/JoelPM/erlang-mysql-driver)  fork
-* [Another maintained* erlang-mysql-driver](https://github.com/chernomor/erlang-mysql-driver)  fork
+* [Another maintained&#134; erlang-mysql-driver](https://github.com/chernomor/erlang-mysql-driver)  fork
 * [MySQL Client Server Protocol](http://forge.mysql.com/wiki/MySQL_Internals_ClientServer_Protocol)
 * [MySQL 5.5 Source](ftp://ftp.fu-berlin.de/unix/databases/mysql/Downloads/MySQL-5.5/mysql-5.5.8.tar.gz)
 
- maintained at the time of writing, Jan 2011.
+&#134;maintained at the time of writing, Jan 2011.
 
 ## TODO
 * decrementing pool size could close sockets that are in use

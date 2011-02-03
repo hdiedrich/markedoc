@@ -1,14 +1,30 @@
 # markedoc project gitignore file. Exclude all these:
+
+# artifacts of experimenting in root dir
+doc/
+doc/*
+
+# general intermediary files
 SAMPLE.edoc
-README.html
+edoc-info
 *.dump
 *.beam
 *.log
-doc/
-doc/*
+
+# specific sample files
+samples/doc/*.edoc
 samples/doc/*.html
 samples/doc/edoc-info
-# but allow these (being listed below the above matters)
+samples/your-test-results/*.edoc
+samples/your-test-results/*.html
+samples/your-test-results/edoc-info
+samples/your-test-results/stylesheet.css
+
+# dev
+README.html
+
+# DIDN'T WORK: allow these
+# since it didn't work, the above is a tad more explicit
 !/samples/*.md
 !overview.edoc
 !/samples/what-you-should-get/*
