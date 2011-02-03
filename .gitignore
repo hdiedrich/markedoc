@@ -6,8 +6,9 @@ README.html
 *.log
 doc/
 doc/*
-samples/*
+samples/doc/*.html
+samples/doc/edoc-info
 # but allow these (being listed below the above matters)
-!samples/*.md
-!samples/doc/overview.edoc
-!samples/what-you-should-get/*
+!/samples/*.md
+!overview.edoc
+!/samples/what-you-should-get/*
