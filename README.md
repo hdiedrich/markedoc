@@ -11,7 +11,7 @@ markedoc is a mere [sed][] command file to convert markdown to edoc. It is part 
 
 [issues]: https://github.com/hdiedrich/markedoc/issues "Issue tracker"
 
-Use
+Use                                                           <a name=Use></a>
 ---
 At the command line for
 
@@ -29,7 +29,7 @@ Requirements                                          <a name=Requirements></a>
 
 * **[Erlang/OTP][Erlang]**, see [Notes][].
 
-Test
+Test                                                          <a name=Test></a>
 ----
 
  **FreeBSD, Mac OS X**
@@ -40,7 +40,7 @@ Test
 
 Then check html files as listed in the output.
 
-Sample
+Sample                                                      <a name=Sample></a>
 ------
 
 From project root (were the README.md file is), try out:
@@ -86,12 +86,12 @@ Accordingly, the sample stub overview.edoc used for the samples here, looks like
 	@version 0.2
 	@docfile "samples/doc/SAMPLE.edoc"
 
-Tricks
+Tricks                                                       <a name=Tricks></a>
 ------
 
 Markdown cannot jump to headlines as anchors, while edoc makes headlines into anchors automatically. To allow for meaningful anchor jumps like [sample][] within a page, the following workaround makes sense. It is 'weeded out' by markedoc so that it does not trip up edoc.
 
-	## Examples                                          <a name=example></a>
+	## Examples                                             <a name=example></a>
 	
 	...
 	
@@ -103,7 +103,7 @@ Markdown actually uses the `[sample]: #sample' reference. EDoc, however, automat
 If you get the reference wrong or forget to make it, the link tag will be displayed in the open, as actual `[example][]'.
 
 
-Status
+Status                                                       <a name=Status></a>
 ------
 
  **Pre-Beta**. Quite usable, but still likes to trip up EDoc now and then, which is kind of easy to do. 
@@ -112,7 +112,7 @@ There are  many ways to create formats that will make the EDoc generator tilt an
 
  **Thanks!**
 
-Notes
+Notes                                                         <a name=Notes></a>
 -----
 
  **[Erlang][]** is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecom, banking, e-commerce, computer telephony and instant messaging. Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance. Erlang comes bundled with the Open Telecom Platform, OTP.
