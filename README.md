@@ -23,7 +23,7 @@ At the command line for
 
 Usage for Linux and FreeBSD and Mac OS X is completely the same, except for the -r instead of the -E parameter. Both mean the same but happen to have a different name. In the examples below, replace -E with -r where necessary.
 
-Requirements
+Requirements                                          <a name=Requirements></a>
 ------------
 * **[sed][]**: is part of any Linux, FreeBSD and Mac OSX distribution, also see [Notes][].
 
@@ -86,6 +86,23 @@ Accordingly, the sample stub overview.edoc used for the samples here, looks like
 	@version 0.2
 	@docfile "samples/doc/SAMPLE.edoc"
 
+Tricks
+------
+
+Markdown cannot jump to headlines as anchors, while edoc makes headlines into anchors automatically. To allow for meaningful anchor jumps like [sample][] within a page, the following workaround makes sense. It is 'weeded out' by markedoc so that it does not trip up edoc.
+
+	## Examples                                          <a name=example></a>
+	
+	...
+	
+	[sample]: #sample
+
+
+This makes a tag `[example][]' into a direct jump to the headline 'Example', in both markdown and edoc. 
+Markdown actually uses the `[sample]: #sample' reference. EDoc, however, automatically inserts an anchor for 'Example' being a headline, and of the same name. (The links are not case sensitive.) 
+If you get the reference wrong or forget to make it, the link tag will be displayed in the open, as actual `[example][]'.
+
+
 Status
 ------
 
@@ -119,12 +136,6 @@ Notes
 [sed]: http://en.wikipedia.org/wiki/Sed
 [winsed]: http://gnuwin32.sourceforge.net/packages/sed.htm
 [sample]: https://github.com/Eonblast/Emysql/raw/master/README.md "This markdown file is translated alright by markedoc."
-
-Todo
-----
-* make work with non-FreeBSD sed
-* robust alternates not tested for some time
-* protect ampersands
 
 Development
 -----------
@@ -204,23 +215,30 @@ H. Diedrich <hd2010@eonblast.com>
 
 History
 -------
-	
-02/03/11 - 0.3 - **rough edges polished:** Linux, FreeBSD, Mac OS X
+
+02/05/11 - 0.3.1 - **more polish** - Linux, FreeBSD, Mac OS X
+
+* added weeding out of markdown anchor references (an md workaround)
+* added protection for & (but edoc still only accepts number codes)
+* fixed trip up by trailing spaces in underline headline format 
+* checked commented out alternate code for code blocks and references.
+
+02/03/11 - 0.3 - **rough edges polished** - Linux, FreeBSD, Mac OS X
 
 * added doc for Linux use
 * added support for multi-line '[..]: ... "..."' references
 * added footnote signs and sepcial chars:
-* dagger, double dagger: (+), (++), stars: (*), (**), (***)  
-* superscript 1, 2, 3: (*1), (*2), (*3), copyright (C), (R), (TM),  
+* dagger, double dagger: (+), (++), stars: (\*), (\*\*), (\*\*\*)  
+* superscript 1, 2, 3: (\*1), (\*2), (\*3), copyright (C), (R), (TM),  
 * guillemots <<, >> and middle dot ::
 * added test batches etc/test-bsd.sh and etc/test-linux.sh
 * added css sample in samples/what-you-could-see/ 
-* added classes for `<li>' list item tags for '[..]:...'-references
+* added classes for ``< li >'' list item tags for '[..]:...'-references
 * fixed italic and bold merker interference bullet points
 * eliminated [..]: part of '[..]:...'-references, flipping "..." to lead
 * dev: sample creation batch make_samples.sh added
 	
-02/02/11 - 0.2 - **basics complete:** FreeBSD / Mac OS X
+02/02/11 - 0.2 - **basics complete** - FreeBSD / Mac OS X
 
 * added support for === and --- headline format
 * fixed cutting off of last lines 
@@ -232,3 +250,7 @@ History
 	
 01/31/11 - 0.1 - **first release:** FreeBSD / Mac OS X
 	
+[Requirements]: #Requirements
+[Status]: #Status
+[Notes]: #Notes
+[Test]: #Test
