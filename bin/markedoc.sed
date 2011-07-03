@@ -1,4 +1,4 @@
-# markedoc 0.3 - 02/03/11 - H. Diedrich <hd2010@eonblast.com>
+# markedoc 0.3.3 - 07/01/11 H. Diedrich <hd2010@eonblast.com>
 # ----------------------------------------------------------
 # sed command file to convert markdown format to edoc format
 # Linux, FreeBSD and Mac OS X. Windows must install sed.
@@ -33,7 +33,7 @@
 # ----------------------------------------------------------
 # LICENSE: Free software, no warranties.
 # ----------------------------------------------------------
-# On edown: http://www.erlang.org/doc/apps/edoc/ 
+# On edown: https://github.com/esl/edown 
 # On Markdown: http://daringfireball.net/projects/markdown/
 # On Edoc: http://www.erlang.org/doc/apps/edoc/ 
 # On sed: http://www.gnu.org/software/sed/manual/sed.html
@@ -42,15 +42,11 @@
 # Issues: https://github.com/hdiedrich/markedoc/issues
 # Please experiment and push your fixes. - Thanks!
 # ----------------------------------------------------------
-# TODO:
-# * robust alternates not tested for some time  
-# * protect ampersands
-# ----------------------------------------------------------
 
 # **********************************************************
 # SCRIPT
 # **********************************************************
-# Ach, da kommt der Meister! Herr, die Not ist groß!   ~~~
+# Ach, da kommt der Meister! Herr, die Not ist gross!  ~~~
 #   ~~~  Die ich rief, die Geister, Werd ich nun nicht los.
 # ----------------------------------------------------------
 # This is a sed script for use with -E/-r regexes & NOT -n.
@@ -63,7 +59,6 @@
 # your help making this better is much appreciated.
 # **********************************************************
 
-:start
 
 # as first line, make the @doc tag
 # --------------------------------
@@ -182,12 +177,12 @@ s/>>/\&#187;/g
 
 # copy right
 # ----------
-s/\(c)/\&#169;/g
-s/\(C)/\&#169;/g
-s/\(R)/\&#174;/g
-s/\(r)/\&#174;/g
-s/\(tm)/\&#153;/g
-s/\(TM)/\&#153;/g
+s/\(c\)/\&#169;/g
+s/\(C\)/\&#169;/g
+s/\(R\)/\&#174;/g
+s/\(r\)/\&#174;/g
+s/\(tm\)/\&#153;/g
+s/\(TM\)/\&#153;/g
 
 # links
 # -----

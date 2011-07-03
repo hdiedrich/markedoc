@@ -1,5 +1,5 @@
-markedoc 0.3
-============
+markedoc 0.3.3
+==============
 
 **markedoc helps you keep your project's README.md in sync with your overview.edoc.**
 
@@ -15,10 +15,10 @@ Use                                                           <a name=Use></a>
 ---
 At the command line for
 
-**FreeBSD, Mac OS X**
+**FreeBSD, Mac OS X**  
 	$ sed -E -f markedoc.sed <markdown file> > <edoc file>
 
-**Linux**
+**Linux**  
 	$ sed -r -f markedoc.sed <markdown file> > <edoc file>
 
 Usage for Linux and FreeBSD and Mac OS X is completely the same, except for the -r instead of the -E parameter. Both mean the same but happen to have a different name. In the examples below, replace -E with -r where necessary.
@@ -32,10 +32,10 @@ Requirements                                          <a name=Requirements></a>
 Test                                                          <a name=Test></a>
 ----
 
- **FreeBSD, Mac OS X**
+ **FreeBSD, Mac OS X**  
 	$ etc/test-bsd.sh
 
- **Linux**
+ **Linux**  
 	$ etc/test-linux.sh
 
 Then check html files as listed in the output.
@@ -45,11 +45,11 @@ Sample                                                      <a name=Sample></a>
 
 From project root (were the README.md file is), try out:
 
- **FreeBSD, Mac OS X**
+ **FreeBSD, Mac OS X**  
 	$ sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
 
- **Linux**
+ **Linux**  
 	$ sed -r -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
 
@@ -65,11 +65,11 @@ This illustrates the motivation for the markedoc as it is now: to have all code 
 
 For your own projects you'd copy markedoc.sed in the right place and do something like:
 
- **FreeBSD, Mac OS X**
+ **FreeBSD, Mac OS X**  
 	$ sed -E -f bin/markedoc.sed README.md > doc/README.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"."' '[]'	
 
- **Linux**
+ **Linux**  
 	$ sed -r -f bin/markedoc.sed README.md > doc/README.edoc
 	$ erl -noshell -run edoc_run application "'myapp'" '"."' '[]'	
 
@@ -83,13 +83,14 @@ Accordingly, the sample stub overview.edoc used for the samples here, looks like
 
 	@author You 
 	@title  a markedoc sample doc
-	@version 0.2
+	@version 0.3.3
 	@docfile "samples/doc/SAMPLE.edoc"
 
 Tricks                                                       <a name=Tricks></a>
 ------
 
-Markdown cannot jump to headlines as anchors, while edoc makes headlines into anchors automatically. To allow for meaningful anchor jumps like [sample][] within a page, the following workaround makes sense. It is 'weeded out' by markedoc so that it does not trip up edoc.
+Markdown cannot jump to headlines as anchors, while edoc makes headlines into anchors automatically. To allow for meaningful anchor jumps like [sample][] within a page, the following workaround makes sense. It is 'weeded out' by markedoc so that it does not trip up edoc. But it makes for local jumps in
+both worlds:
 
 	## Examples                                             <a name=example></a>
 	
@@ -141,7 +142,7 @@ Development
 -----------
 To test markedoc, see '[Test][]', above. Or use
 
- **FreeBSD**
+ **FreeBSD**  
 	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
 	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[{def,{vsn,""}},{stylesheet, "markedoc.css"}]'
 	mv samples/doc/overview-summary.html samples/your-test-results/sample1.html
@@ -161,12 +162,12 @@ Then check samples/your-test-results/sample1.html - sample3.html and compare wit
 
 To create the reference samples:
 
- **FreeBSD**
+ **FreeBSD**  
 	etc/make_samples.sh
 
 or do the following to create six samples and save the results into samples/what-you-should-see/ and samples/what-you-could-see/
 
- **FreeBSD**
+ **FreeBSD**  
 	sed -E -f bin/markedoc.sed samples/SAMPLE1.md > samples/doc/SAMPLE.edoc
 	erl -noshell -run edoc_run application "'myapp'" '"samples"' '[]'
 	mv samples/doc/overview-summary.html samples/what-you-could-see/sample1.html
@@ -215,6 +216,16 @@ H. Diedrich <hd2010@eonblast.com>
 
 History
 -------
+
+07/01/11 - 0.3.3 - **fixes** - Linux, FreeBSD, Mac OS X
+
+* #1: missing escape for brackets in copyright replacements 
+* fixed readme formatting, clean up of stand alone release
+
+02/18/11 - 0.3.2 - **edown release** - Linux, FreeBSD, Mac OS X
+
+* minor clean up
+* integrated into edown
 
 02/05/11 - 0.3.1 - **more polish** - Linux, FreeBSD, Mac OS X
 
